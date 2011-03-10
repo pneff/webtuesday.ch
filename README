@@ -1,0 +1,8 @@
+This is the webtuesday.ch web site.
+
+To get started:
+    1. Install nanoc: gem install nanoc
+    2. Edit some file: vi content/index.html
+    3. Compile: nanoc compile
+
+Check the nanoc documentation for details: http://nanoc.stoneship.org/docs/

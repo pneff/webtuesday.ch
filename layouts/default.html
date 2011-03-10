@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title><%= @item[:title] %> - Webtuesday</title>
+        <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+    </head>
+    <body>
+        <div id="sidebar">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/meetings/20110402/">Next meeting</a></li>
+                <li><a href="/meetings/">All meetings</a></li>
+                <li><a href="/readme/">About this site</a></li>
+            </ul>
+            <h2>Community</h2>
+            <ul>
+                <li><a href="http://twitter.com/webtuesday">@webtuesday on Twitter</a></li>
+                <li><a href="http://techup.ch/">techup.ch</a></li>
+                <li><a href="http://groups.google.com/group/webtuesday-announce/">mailing list</a></li>
+            </ul>
+        </div>
+        <div id="main">
+            <%= yield %>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,60 @@
+---
+title: Home
+---
+
+<h1>Webtuesday</h1>
+<p>
+    Webtuesday is a meeting by developers around Zürich, Switzerland. We meet
+    every second Tuesday of the month at various companies in Zürich.
+</p>
+
+<h2>Next meeting</h2>
+<p>
+    The <a href="/meetings/20110412/">next meeting</a> will take place on
+    <strong>April 12, 2011</strong> at 19:30.
+</p>
+
+<div id="feeds"></div>
+
+<h2>Updates</h2>
+<p>Keep updated on the following channels:</p>
+<ul>
+    <li><a href="http://twitter.com/webtuesday">@webtuesday on Twitter</a></li>
+    <li><a href="http://techup.ch/">techup.ch</a></li>
+    <li><a href="http://groups.google.com/group/webtuesday-announce/">webtuesday-announce mailing list</a></li>
+</ul>
+
+<h2>Future dates</h2>
+<ul>
+    <li><a href="/meetings/20110510/">May 10, 2011</a></li>
+    <li><a href="/meetings/20110614/">June 14, 2011</a></li>
+    <li><a href="/meetings/20110712/">July 12, 2011</a></li>
+    <li><a href="/meetings/20110809/">August 9, 2011</a></li>
+    <li><a href="/meetings/20110913/">September 13, 2011</a></li>
+    <li><a href="/meetings/20111011/">October 11, 2011</a></li>
+    <li><a href="/meetings/20111108/">November 8, 2011</a></li>
+    <li><a href="/meetings/20111213/">December 13, 2011</a></li>
+</ul>
+<p><a href="/meetings/">See all future and past meetings</a></p>
+
+<h2>Contact</h2>
+<p>We are always looking for presentors and locations where we can hold the
+    webtuesday. Please get in contact with one of the organizers if you can
+    offer that or if you have a question.</p>
+<ul>
+    <li><a href="http://twitter.com/webtuesday">@webtuesday on Twitter</a></li>
+    <li><a href="">Harry Fuecks</a></li>
+    <li><a href="http://patrice.ch/">Patrice Neff</a></li>
+</ul>
+
+<!-- load the Twitter feed -->
+<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAjIKJZdsneVMYnLsofamAchS98H9opBN_nujJnKZLB6L34znnGxRp3M61BeT83eCqzLxTalCbKZPozA"></script>
+<script type="text/javascript">
+    google.load("feeds", "1");
+    function initialize() {
+        var feedControl = new google.feeds.FeedControl();
+        feedControl.addFeed("http://search.twitter.com/search.atom?q=webtuesday", "Twitter");
+        feedControl.draw(document.getElementById("feeds"));
+    }
+    google.setOnLoadCallback(initialize);
+</script>

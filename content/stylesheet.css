@@ -1,0 +1,36 @@
+/* structure */
+body {
+    font: 75% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+    font-size: 75%; /* Reduce to 12px */
+}
+#main {
+    margin-left: 17em;
+    max-width: 40em;
+}
+#sidebar {
+    float: left;
+    width: 15em;
+    border-right: 1px solid #8d0000;
+    padding-right: 1em;
+    margin-right: 1em;
+    margin-top: 3.5em;
+}
+
+/* content styling */
+h1 {
+    color: #8d0000;
+    margin-bottom: 0.1em;
+}
+
+/* feed on the home page */
+#feeds {
+    float: right;
+    width: 20em;
+    border: 1px solid #ccc;
+    margin-left: 2em;
+}
+.gfc-resultsHeader, .gfc-results {
+    padding: 0.2em;
+    width: auto;
+}
+
