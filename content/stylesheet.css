@@ -1,8 +1,9 @@
 /* structure */
 body {
-    font: 75% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+    font-family: "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
     font-size: 75%; /* Reduce to 12px */
     background: #846a46;
+    line-height: 1.45em;
 }
 #hd {
     padding-left: 17em;
@@ -10,8 +11,8 @@ body {
 #content {
     margin: 0 auto;
     min-width: 50em;
-    max-width: 80em;
-    padding: 1em;
+    max-width: 70em;
+    padding: 2em;
     background: #fff;
 }
 #main {
@@ -20,10 +21,8 @@ body {
 #sidebar {
     float: left;
     width: 15em;
-    border-right: 1px solid #846a46;
     padding-right: 1em;
     margin-right: 1em;
-    margin-top: 1em;
 }
 #ft {
     clear: both;
@@ -31,8 +30,28 @@ body {
 
 /* content styling */
 h1 {
-    color: #846a46;
-    margin-bottom: 0.1em;
+    font-family: Consolas, Monaco, "Courier New", Courier, monospace;
+    color: #685336;
+    font-size: 4em;
+    margin-bottom: 0;
+    padding-bottom: 0.5em;
+}
+h2 {
+    color: #34322e;
+    margin: 1.5em 0 0 0;
+}
+ul {
+    padding-left: 1.5em;
+    list-style-type: square;
+}
+a {
+    color: #09539e;
+}
+a:visited {
+    color: #58799b;
+}
+a:hover {
+    color: #042d57;
 }
 
 /* feed on the home page */
@@ -41,8 +60,9 @@ h1 {
     width: 20em;
     border: 1px solid #ccc;
     margin-left: 2em;
+    margin-top: 1em;
 }
 .gfc-resultsHeader, .gfc-results {
-    padding: 0.2em;
-    width: auto;
+    padding: 0.4em 0.5em;
+    width: auto !important;
 }
