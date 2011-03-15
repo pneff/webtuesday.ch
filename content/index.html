@@ -1,18 +1,21 @@
 ---
 title: Home
+h1: Webtuesday
 ---
 
-<h1>Webtuesday</h1>
 <p>
     Webtuesday is a meeting by developers around Zürich, Switzerland. We meet
     every second Tuesday of the month at various companies in Zürich.
 </p>
 
 <h2>Next meeting</h2>
-<p>
-    The <a href="/meetings/20110412/">next meeting</a> will take place on
-    <strong>April 12, 2011</strong> at 19:30.
-</p>
+<% if next_meeting.nil? %>
+    <p>The next meeting has not been scheduled, yet.</p>
+<% else %>
+    <p> The <%=link_to("next meeting", next_meeting)%> will take place on
+    <strong><%=next_meeting[:title]%></strong> at <%=next_meeting[:time] or "19:30"%>.
+    </p>
+<% end %>
 
 <div id="feeds"></div>
 
@@ -24,18 +27,18 @@ title: Home
     <li><a href="http://groups.google.com/group/webtuesday-announce/">webtuesday-announce mailing list</a></li>
 </ul>
 
-<h2>Future dates</h2>
-<ul>
-    <li><a href="/meetings/20110510/">May 10, 2011</a></li>
-    <li><a href="/meetings/20110614/">June 14, 2011</a></li>
-    <li><a href="/meetings/20110712/">July 12, 2011</a></li>
-    <li><a href="/meetings/20110809/">August 9, 2011</a></li>
-    <li><a href="/meetings/20110913/">September 13, 2011</a></li>
-    <li><a href="/meetings/20111011/">October 11, 2011</a></li>
-    <li><a href="/meetings/20111108/">November 8, 2011</a></li>
-    <li><a href="/meetings/20111213/">December 13, 2011</a></li>
-</ul>
-<p><a href="/meetings/">See all future and past meetings</a></p>
+<% if future_meetings.count > 0 %>
+    <h2>Future dates</h2>
+    <ul>
+        <% future_meetings.each do |page| %>
+            <li>
+                <%= link_to(page[:title], page.reps[0]) %>
+                <% unless page[:abstract].nil? %> &ndash; <%=page[:abstract] %><% end %>
+            </li>
+        <% end %>
+    </ul>
+    <p><a href="/meetings/">See all future and past meetings</a></p>
+<% end %>
 
 <h2>Contact</h2>
 <p>We are always looking for presentors and locations where we can hold the

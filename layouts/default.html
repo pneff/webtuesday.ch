@@ -6,22 +6,32 @@
         <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
     </head>
     <body>
-        <div id="sidebar">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/meetings/20110402/">Next meeting</a></li>
-                <li><a href="/meetings/">All meetings</a></li>
-                <li><a href="/readme/">About this site</a></li>
-            </ul>
-            <h2>Community</h2>
-            <ul>
-                <li><a href="http://twitter.com/webtuesday">@webtuesday on Twitter</a></li>
-                <li><a href="http://techup.ch/">techup.ch</a></li>
-                <li><a href="http://groups.google.com/group/webtuesday-announce/">mailing list</a></li>
-            </ul>
-        </div>
-        <div id="main">
-            <%= yield %>
+        <div id="content">
+            <div id="hd">
+                <h1><%= @item[:h1] or @item[:title] %></h1>
+            </div>
+
+            <div id="sidebar">
+                <ul>
+                    <li><%=link_to_unless_current('Home', '/') %></li>
+                    <% if not next_meeting.nil? %>
+                        <li><%=link_to_unless_current('Next meeting', next_meeting) %></li>
+                    <% end %>
+                    <li><%=link_to_unless_current('All meetings', '/meetings/') %></li>
+                    <li><%=link_to_unless_current('About this site', '/readme/') %></li>
+                </ul>
+                <h2>Community</h2>
+                <ul>
+                    <li><a href="http://twitter.com/webtuesday">@webtuesday on Twitter</a></li>
+                    <li><a href="http://techup.ch/">techup.ch</a></li>
+                    <li><a href="http://groups.google.com/group/webtuesday-announce/">mailing list</a></li>
+                </ul>
+            </div>
+            <div id="main">
+                <%= yield %>
+            </div>
+
+            <div id="ft"></div>
         </div>
     </body>
 </html>

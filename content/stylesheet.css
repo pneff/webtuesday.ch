@@ -2,23 +2,36 @@
 body {
     font: 75% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
     font-size: 75%; /* Reduce to 12px */
+    background: #846a46;
+}
+#hd {
+    padding-left: 17em;
+}
+#content {
+    margin: 0 auto;
+    min-width: 50em;
+    max-width: 80em;
+    padding: 1em;
+    background: #fff;
 }
 #main {
     margin-left: 17em;
-    max-width: 40em;
 }
 #sidebar {
     float: left;
     width: 15em;
-    border-right: 1px solid #8d0000;
+    border-right: 1px solid #846a46;
     padding-right: 1em;
     margin-right: 1em;
-    margin-top: 3.5em;
+    margin-top: 1em;
+}
+#ft {
+    clear: both;
 }
 
 /* content styling */
 h1 {
-    color: #8d0000;
+    color: #846a46;
     margin-bottom: 0.1em;
 }
 
@@ -33,4 +46,3 @@ h1 {
     padding: 0.2em;
     width: auto;
 }
-

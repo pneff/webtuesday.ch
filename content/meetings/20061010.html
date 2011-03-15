@@ -1,0 +1,235 @@
+---
+date: 2006-10-10
+title: October 10, 2006
+kind: meeting
+abstract: Javascript vs. PHP
+---
+
+<p>Meeting at 19:30 - location: The Amiado (Students.ch) offices</p>
+
+<h2>Presentation</h2>
+<p><a href="/files/2006-10-pro-js.pdf">pro-js.pdf</a></p>
+<p><a href="/files/2006-10-pro-php.pdf">pro-php.pdf</a></p>
+
+<h3 id="resultsjavascript_sucks_harder_than_php">Results: Javascript sucks harder than PHP(!?!)</h3>
+<h4>Individual Topic Ratings</h4>
+<ul>
+    <li>Syntax: PHP - Sucks, JS - Sucks Hard</li>
+    <li>Data Types: PHP - Sucks, JS - Sucks</li>
+    <li>Scope / Namespaces / Packaging: PHP - Annoys, JS - Sucks Hard</li>
+    <li>Standard Library: PHP - Sucks, JS - Sucks Hard</li>
+    <li>Extension Libraries: PHP - Sucks, JS - Annoys</li>
+    <li>Procedural Programming: PHP - Annoys, JS - Annoys</li>
+    <li>Object Oriented Programming: PHP - Sucks, JS - Sucks</li>
+    <li>Functional Programming: PHP - Blows, JS - OK</li>
+    <li>Meta Programming: PHP - OK, JS - OK</li>
+    <li>AOP: PHP - OK, JS - OK</li>
+    <li>Networking: PHP - OK, JS - Sucks</li>
+    <li>Error Handling: PHP - Sucks Hard, JS - Sucks</li>
+    <li>Multi Tasking: PHP - OK, JS - Sucks</li>
+    <li>Reflection: PHP - OK, JS - Sucks</li>
+    <li>Garbage Collection: PHP - Blows, JS - Blows</li>
+    <li>Security: PHP - Blows, JS - Sucks</li>
+    <li>Garbage Collection: PHP - Blows, JS - Blows</li>
+    <li>Security: PHP - Sucks, JS - Sucks</li>
+    <li>Tools: PHP - Sucks, JS - Sucks Hard</li>
+    <li>Server Side: PHP - OK, JS - Sucks</li>
+    <li>Client Side: PHP - Sucks Hard, JS - OK</li>
+    <li>Final Rave: PHP - Sucks, JS - Sucks</li>
+</ul>
+
+<h3>Overall Suckage</h3>
+<p>PHP: <tt>******************************************************************** (68)</tt></p>
+<p>Javascript: <tt>************************************************************************** (74)</tt></p>
+
+<strong>Javascript sucks harder!</strong>
+
+<h3>The Suckometer</h3>
+<code><pre>
+#!/usr/bin/perl -w
+use strict;
+use QWizard;
+use IO::File;
+
+my $RESULTF = $ENV{HOME}.'/suckometer.txt';
+if ( -f $RESULTF ) { `rm $RESULTF`; }
+
+my $TOPICS = [
+	      'Syntax',
+	      'Data Types',
+	      'Scope / Namespaces / Packaging',
+	      'Standard Library',
+	      'Extension Libraries',
+	      'Procedural Programming',
+	      'Object Oriented Programming',
+	      'Functional Programming',
+	      'Meta Programming',
+	      'AOP',
+	      'Networking',
+	      'Error Handling',
+	      'Multi Tasking',
+	      'Reflection',
+	      'Garbage Collection',
+	      'Security',
+	      'Tools',
+	      'Server Side',
+	      'Client Side',
+	      'Final Rave',
+	      ];
+
+sub score {
+    my $answer = shift;
+    $answer = lc($answer);
+    my $answers = {};
+    $answers->{'ok'} = 0;
+    $answers->{'annoys'} = 2;
+    $answers->{'sucks'} = 4;
+    $answers->{'sucks hard'} = 6;
+    $answers->{'blows'} = 10;
+    return $answers->{$answer};
+}
+
+sub record {
+    my $in = shift;
+    my $fh = IO::File->new;
+    $fh->open(">> $RESULTF");
+    print $fh "$in\n";
+    $fh->close;
+}
+
+my %primaries =
+  (
+   'topprimary' => {
+		    title => 'The SuckoMeter',
+		    introduction => 'What sucks harder - PHP or Javascript?',
+		    questions =>
+		    [{ type => 'label',
+		       name => 'justalabel',
+		       text => 'Please answer the following questions...'}],
+
+		    post_answers =>
+		    [sub {
+			 my $wiz = $_[0];
+			 foreach my $t ( @{$TOPICS} ) {
+			     $wiz->add_todos(-late, "primary_$t");
+			 }
+			 $wiz->add_todos(-late, "last");
+			 return 'OK';
+		     }],
+
+		    actions =>
+		    [sub {
+		
+		       my $add = sub {
+			 $_[0] += $_[1];
+			 for(1...$_[1]){$_[2].='*'};
+		       };
+		
+		       my $php_total = 0;
+		       my $js_total = 0;
+		       my $php_bar = '';
+		       my $js_bar = '';
+		
+		       foreach my $t ( @{$TOPICS} ) {
+			 $add->($php_total,
+				score(qwparam("php_$t")),
+				$php_bar);
+			 $add->($js_total,
+				score(qwparam("js_$t")),
+				$js_bar);
+		       }
+		       my $result = 'PHP and Javascript suck equally!';
+		       $result = $php_total > $js_total ?
+			 'PHP sucks harder!' :
+			   'Javascript sucks harder!'
+			     unless $php_total == $js_total;
+		       my $result = ['',
+			       '-------------------------',
+			       "Overall Suckage",
+			       '-------------------------',
+			       '',
+			       'PHP:',
+			       "$php_bar ($php_total)",
+			       '',
+			       'Javascript:',
+			       "$js_bar ($js_total)",
+			       '',
+			       "$result",
+			      ];
+		       record(join("\n",@{$result}));
+		       return $result;
+		     }],
+		   },
+  );
+
+foreach my $t ( @{$TOPICS} ) {
+    $primaries{"primary_$t"} = {
+	title => "$t",
+	introduction => "$t : which sucks harder?",
+	questions => [{ type => 'radio',
+			name => "php_$t",
+			text => "PHP $t:",
+			values => [
+				   'Blows',
+				   'Sucks Hard',
+				   'Sucks',
+				   'Annoys',
+				   'OK',
+				   ],
+			    default => 'OK'
+			       },
+		      { type => 'label',
+			name => 'seperator',
+			text => sub {
+			    my $s = '';
+			    for(1...30){$s.='-'};
+			    return $s
+			    },
+			    },
+		      {	type => 'radio',
+			name => "js_$t",
+			text => "Javascript $t:",
+			values => [
+				   'Blows',
+				   'Sucks Hard',
+				   'Sucks',
+				   'Annoys',
+				   'OK',
+				  ],
+			default => 'OK'
+		      },
+		     ],
+				post_answers => [
+					sub {
+					    my $res =
+						   sprintf(
+							   "%s: PHP - %s, JS - %s\n",
+							   $t,
+							   qwparam("php_$t"),
+							   qwparam("js_$t")
+							  );
+					    record($res);
+					    return "OK";
+					}
+					   ],
+
+	};
+}
+
+$primaries{'last'} = {
+		      title => 'Ready to calculate',
+		      introduction => 'The Suckometer is ready to process the results',
+		      questions =>
+		    [{ type => 'label',
+		       name => 'justalabel2',
+		       text => 'Ready to find out?'}],
+		     };
+
+my $qw = new QWizard(primaries => \%primaries,
+		     title => 'The SuckoMeter',
+		     no_confirm => 1);
+
+# $QWizard::qwdebug = 1;
+
+$qw->magic('topprimary');
+</pre></code>
