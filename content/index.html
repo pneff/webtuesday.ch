@@ -12,8 +12,13 @@ h1: Webtuesday
 <% if next_meeting.nil? %>
     <p>The next meeting has not been scheduled, yet.</p>
 <% else %>
-    <p> The <%=link_to("next meeting", next_meeting)%> will take place on
-    <strong><%=next_meeting[:title]%></strong> at <%=next_meeting[:time] or "19:30"%>.
+    <p>
+        The <%=link_to("next meeting", next_meeting)%> will take place on
+        <strong><%=next_meeting[:title]%></strong> at
+        <%=next_meeting[:time] or "19:30"%>.
+        <% unless next_meeting[:abstract].nil? %>
+            The topic is <strong><%=next_meeting[:abstract]%></strong>.
+        <% end %>
     </p>
 <% end %>
 
