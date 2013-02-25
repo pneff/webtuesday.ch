@@ -67,3 +67,74 @@ a:hover {
     padding: 0.4em 0.5em;
     width: auto !important;
 }
+
+
+@media (max-width: 658px) {
+    body {
+        background: red;
+    }
+
+    body {
+        background: #fff;
+        font-size: 100%;
+    }
+    h1 {
+        font-size: 1.2em;
+    }
+    #content {
+        min-width: 0;
+        margin: 0;
+        padding: 0.2em 0.5em;
+    }
+    #main, #sidebar {
+        float: none;
+        margin: 0;
+    }
+    #feeds {
+        float: none;
+        display: none;
+    }
+    #hd {
+        padding: 0;
+    }
+
+    #sidebar {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 100%;
+        padding: 0;
+    }
+    #sidebar ul {
+        padding: 0;
+        margin: 0;
+    }
+    #sidebar li {
+        list-style: none;
+        border-bottom: 1px solid #ccc;
+        padding: 0 10px;
+    }
+    #sidebar li:last-child {
+        border-bottom: 0;
+    }
+    #sidebar h2 {
+        border-top: 1px solid #ccc;
+        margin: 0;
+        padding: 20px 10px 5px;
+        color: #8a8a8a;
+        font-size: 1em;
+    }
+    #sidebar a {
+        display: block;
+    }
+
+    #main {
+        margin-top: 2em;
+    }
+}
+
+
+@media screen and (max-device-width: 480px) {
+    body {
+        font-size: 150%;
+    }
+}
