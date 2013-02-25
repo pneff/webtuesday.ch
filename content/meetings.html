@@ -3,7 +3,7 @@ title: All meetings
 ---
 
 <ul>
-    <% @item.children.sort { |a, b| a[:date] <=> b[:date] }.each do |page| %>
+    <% @item.children.sort { |a, b| b[:date] <=> a[:date] }.each do |page| %>
         <li>
             <%= link_to(page[:title], page.reps[0]) %>
             <% unless page[:abstract].nil? %> &ndash; <%=page[:abstract] %><% end %>
