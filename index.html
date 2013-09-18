@@ -1,79 +1,105 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Home - Webtuesday</title>
+        <link rel="stylesheet" type="text/css" href="/style.css" media="screen">
+        <link rel="alternate" type="application/atom+xml" title="Site Updates" href="http://github.com/pneff/webtuesday.ch/commits/master.atom">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+        <div id="content">
+            <div id="hd">
+                <h1>Webtuesday</h1>
+            </div>
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Webtuesday.ch : The official webtuesday.ch website" />
+            <div id="sidebar">
+                <ul>
+                    <li><span class="active" title="You're here.">Home</span></li>
+                    
+                        <li><a href="/meetings/20131008/">Next meeting</a></li>
+                    
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/meetings/">All meetings</a></li>
+                    <li><a href="/howto/">Webtuesday howto</a></li>
+                    <li><a href="/readme/">About this site</a></li>
+                    <li><a href="/jobs/">Jobs</a></li>
+                </ul>
+                <h2>Community</h2>
+                <ul>
+                    <li><a href="http://twitter.com/webtuesday">@webtuesday on Twitter</a></li>
+                    <li><a href="http://techup.ch/">techup.ch</a></li>
+                    <li><a href="http://groups.google.com/group/webtuesday-announce/">mailing list</a></li>
+                </ul>
+            </div>
+            <div id="main">
+                <p>
+    Webtuesday is a monthly geek meeting around Z├╝rich, Switzerland. We meet
+    every second Tuesday of the month at various companies in Z├╝rich.
+</p>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+<h2>Next meeting</h2>
 
-    <title>Webtuesday.ch</title>
-  </head>
+    <p>
+        The <a href="/meetings/20131008/">next meeting</a> will take place on
+        <strong>October 8, 2013</strong> at
+        19:30.
+        
+            The topic is <strong>Ein Einblick in Blick - Making News with PHP. With Benjamin R├╝egg.</strong>.
+        
+    </p>
 
-  <body>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/pneff/webtuesday.ch">View on GitHub</a>
+<div id="feeds"></div>
 
-          <h1 id="project_title">Webtuesday.ch</h1>
-          <h2 id="project_tagline">The official webtuesday.ch website</h2>
+<h2>Updates</h2>
+<p>Keep updated on the following channels:</p>
+<ul>
+    <li><a href="http://twitter.com/webtuesday">@webtuesday on Twitter</a></li>
+    <li><a href="http://techup.ch/">techup.ch</a></li>
+    <li><a href="http://groups.google.com/group/webtuesday-announce/">webtuesday-announce mailing list</a></li>
+</ul>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/pneff/webtuesday.ch/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/pneff/webtuesday.ch/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+    <h2>Future dates</h2>
+    <ul>
+        
+            <li>
+                <a href="/meetings/20131008/">October 8, 2013</a>
+                 &ndash; Ein Einblick in Blick - Making News with PHP. With Benjamin R├╝egg.
+            </li>
+        
+            <li>
+                <a href="/meetings/20131112/">November 12, 2013</a>
+                
+            </li>
+        
+            <li>
+                <a href="/meetings/20131210/">December 10, 2013</a>
+                
+            </li>
+        
+    </ul>
+    <p><a href="/meetings/">See all future and past meetings</a></p>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+<h2>Contact</h2>
+<p>We are always looking for presentors and locations where we can hold the webtuesday. Please get in <a href="/contact/">contact</a> with one of the <a href="/about/#organisers">organisers</a> if you can offer that or if you have a question. Or just <a href="/howto/">organize your own Webtuesday</a>.</p>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<!-- load the Twitter feed -->
+<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAAjIKJZdsneVMYnLsofamAchS98H9opBN_nujJnKZLB6L34znnGxRp3M61BeT83eCqzLxTalCbKZPozA"></script>
+<script type="text/javascript">
+    google.load("feeds", "1");
+    function initialize() {
+        var feedControl = new google.feeds.FeedControl();
+        feedControl.addFeed("http://search.twitter.com/search.atom?q=webtuesday", "Twitter");
+        feedControl.draw(document.getElementById("feeds"));
+    }
+    google.setOnLoadCallback(initialize);
+</script>
+            </div>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Webtuesday.ch maintained by <a href="https://github.com/pneff">pneff</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
-  </body>
+            <div id="ft"></div>
+        </div>
+    </body>
 </html>
